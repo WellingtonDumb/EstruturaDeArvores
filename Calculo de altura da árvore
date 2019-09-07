@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Wellington Souza Abreu SI 4
+
+struct noArvovre{
+  char Raiz;
+  struct noArvovre* esq;
+  struct noArvovre* dir;
+};
+
+typedef struct noArvovre no;
+
+no* criar_no(char Raiz,no* esq, no* dir){
+	no* n = malloc(sizeof(no ));
+	n->Raiz = Raiz;
+	n->esq = esq;
+	n->dir = dir;
+return n;
+}
+
+int maior(int a, int b){
+    if(a > b)
+        return a;
+    else
+        return b;
+}
+
+
+int altura(no* nono){
+   if((nono == NULL) || (nono->esq == NULL && nono->dir == NULL))
+       return 0;
+   else
+       return 1 + maior(altura(nono->esq), altura(nono->dir));
+}
+
+void main(){
+	no* nono = criar_no('D',criar_no(('B'),criar_no('A', criar_no('Z', NULL, NULL),NULL),criar_no('C',NULL,NULL)), criar_no(('F'),criar_no('E',NULL,NULL),criar_no('G',NULL,NULL)));
+
+
+	printf("Altura da arvore: %d", altura(nono));
+
+}
