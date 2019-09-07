@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 // Wellington Souza Abreu SI 4
+// Daniel Dourado         SI 4
 
 struct noArvovre{
   char Raiz;
